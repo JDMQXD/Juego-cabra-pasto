@@ -24,7 +24,7 @@ fn main() {
             }),
             ..default()
         }))
-        .add_plugins(SoundPlugin) // nuestro plugin
+        .add_plugins(SoundPlugin) 
         .add_systems(Startup, setup_camera)
         .add_systems(Startup, (spawn_grass::spawn_grass_grid, spawn_goat::spawn_goat))
         .add_systems(Update, (goat_movement_system, goat_eat_grass_system))
@@ -35,7 +35,6 @@ fn setup_camera(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
 }
 
-// Sistema de movimiento (igual)
 fn goat_movement_system(
     keyboard: Res<ButtonInput<KeyCode>>,
     mut query: Query<&mut Transform, With<components::goat::Goat>>,
